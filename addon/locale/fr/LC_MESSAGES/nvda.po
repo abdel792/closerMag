@@ -1,0 +1,108 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
+"POT-Creation-Date: 2021-08-09 22:31+0200\n"
+"PO-Revision-Date: 2021-08-09 22:38+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+"X-Poedit-Basepath: .\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#. Translators: Item in the tools menu for the Addon conjugaison.
+#: addon\globalPlugins\conjugaison\__init__.py:52
+msgid "Conju&gaison..."
+msgstr "Conju&gaison..."
+
+#. Translators: The tooltyp text for the conjugaison item.
+#: addon\globalPlugins\conjugaison\__init__.py:54
+#, fuzzy
+#| msgid ""
+#| "Allows you to conjugate a French verb using the site capeutservir.com."
+msgid "Allows you to conjugate a French verb using the site capeutservir.com"
+msgstr ""
+"Permet de conjuguer un verbe français en utilisant le site capeutservir.com."
+
+#. Translators: Message presented in input help mode.
+#: addon\globalPlugins\conjugaison\__init__.py:83
+msgid ""
+"Displays a dalogue box prompting the user to enter a French verb to "
+"conjugate."
+msgstr ""
+"Affiche une boîte de dialogue invitant l'utilisateur à saisir un verbe "
+"français à conjuguer."
+
+#. Translators: Message presented in input help mode.
+#: addon\globalPlugins\conjugaison\__init__.py:89
+msgid "Allows you to display the conjugation add-on settings panel."
+msgstr ""
+"Vous permet d'afficher le panneau des paramètres de l'extension de "
+"conjugaison."
+
+#. Translators: Dialog text for the verb editing dialog.
+#: addon\globalPlugins\conjugaison\__init__.py:100
+msgid "Enter a verb to conjugate"
+msgstr "Entrez un verbe à conjuguez"
+
+#. Translators: Title for the verb editing  dialog
+#: addon\globalPlugins\conjugaison\__init__.py:102
+msgid "Verb to conjugate:"
+msgstr "Verbe à conjuguer :"
+
+#. Translators: A message to remind you that no text has been entered.
+#: addon\globalPlugins\conjugaison\__init__.py:123
+msgid "You did not enter any text, please validate the OK button to start over"
+msgstr ""
+"Vous n'avez saisi aucun texte, veuillez valider le bouton OK pour recommencer"
+
+#. Translators: Title of the blank field reminder dialog box.
+#: addon\globalPlugins\conjugaison\__init__.py:125
+msgid "No text entered"
+msgstr "Aucun texte saisi"
+
+#: addon\globalPlugins\conjugaison\__init__.py:135
+msgid "Error"
+msgstr "Erreur"
+
+#: addon\globalPlugins\conjugaison\__init__.py:137
+#, python-brace-format
+msgid "Can't conjugate the verb {0}"
+msgstr "Impossible de conjuguer le verbe {0}"
+
+#. Translators: Display the conjugation in an NVDA message of type HTML.
+#: addon\globalPlugins\conjugaison\conjugaisonSettings.py:34
+msgid "Display in HTML message"
+msgstr "Afficher dans un message HTML"
+
+#. Translators: Display the conjugation in default browser.
+#: addon\globalPlugins\conjugaison\conjugaisonSettings.py:37
+msgid "Display in default browser"
+msgstr "Afficher dans le navigateur par défaut"
+
+#. Translators: The label for an item to select the display mode for conjugations.
+#: addon\globalPlugins\conjugaison\conjugaisonSettings.py:41
+msgid "Display modes:"
+msgstr "Mode d'affichage :"
+
+#. Translators: Message indicating no context sensitive help is available for the control or dialog.
+#: addon\globalPlugins\conjugaison\contextHelp.py:21
+msgid "No help available here."
+msgstr "Aucune aide disponible."
+
+#. Translators: Message shown when trying to display context sensitive help,
+#. indicating that	the user guide could not be found.
+#: addon\globalPlugins\conjugaison\contextHelp.py:28
+msgid "No user guide found."
+msgstr "Aucun fichier d'aide trouvé."
+
+#. Add-on description
+#. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
+#: buildVars.py:20
+msgid "Allows you to conjugate a French verb using the site capeutservir.com."
+msgstr ""
+"Permet de conjuguer un verbe français en utilisant le site capeutservir.com."
