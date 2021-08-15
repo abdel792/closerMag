@@ -48,6 +48,6 @@ Validating on this element will display the following:
   
   [[!tag dev stable]]
 
-[1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.nvda-addon
+[1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1-dev.nvda-addon
