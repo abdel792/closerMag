@@ -41,6 +41,11 @@ Validating on this element will display the following:
 * This add-on is compatible with versions of NVDA from 2019.3 until 2021.3.
 
 
+## Changes for version 21.08.1 ##
+
+* Reduced the size of the add-on and included the download and installation of the external libraries from the "installTasks.py" module.
+
+
 ## Changes for version 21.08 ##
 
 * Initial version.

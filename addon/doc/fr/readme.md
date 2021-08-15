@@ -41,6 +41,11 @@ La validation sur cet élément affichera ce qui suit :
 * Cette extension est compatible avec les versions de NVDA allant de 2019.3 jusqu'à 2021.3.
 
 
+## Changements pour la version 21.08.1 ##
+
+* Réduction de la taille de l'extension et inclusion du téléchargement et installation des bibliothèques externes depuis le module "installTasks.py".
+
+
 ## Changements pour la version 21.08 ##
 
 * Version initiale.
@@ -50,4 +55,4 @@ La validation sur cet élément affichera ce qui suit :
 
 [1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08-dev.1.nvda-addon
