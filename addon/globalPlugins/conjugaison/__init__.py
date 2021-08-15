@@ -1,3 +1,8 @@
+# globalPlugins/conjugaison/__init__.py.
+# This file is covered by the GNU General Public License.
+# You can read the licence by clicking Help->Licence in the NVDA menu
+# or by visiting http://www.gnu.org/licenses/old-l+backspace
+
 import addonHandler
 import globalPluginHandler
 import wx
@@ -164,7 +169,7 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 			if not os.path.exists(addonTempDir):
 				os.mkdir(addonTempDir)
 			file = os.path.join (addonTempDir, "conjugaison.html")
-			htmlText = """<doctype html>
+			htmlText = """<!DOCTYPE html>
 			<html lang='fr'>
 			<meta charset = 'utf-8' />
 			<head>
