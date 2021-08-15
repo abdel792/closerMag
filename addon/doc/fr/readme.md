@@ -55,4 +55,4 @@ La validation sur cet élément affichera ce qui suit :
 
 [1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08-dev.1.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1-dev.nvda-addon
