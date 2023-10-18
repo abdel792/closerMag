@@ -11,8 +11,10 @@ import config
 # We initialize translation support
 import addonHandler
 addonHandler.initTranslation ()
-
-from gui import SettingsPanel
+if hasattr(gui.settingsDialogs, "SettingsPanel"):
+	from gui.settingsDialogs import SettingsPanel
+else:
+	from gui import SettingsPanel
 
 ### Constants
 ADDON_SUMMARY = addonHandler.getCodeAddon ().manifest["summary"]

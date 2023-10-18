@@ -132,14 +132,19 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 			self.onConjugationDialog ()
 			return
 		response =session.get ("https://www.capeutservir.com/verbes/{0}.html".format(self.verb))
-		tds = response.html.find('td')
+		lst = []
+		trs = response.html.find('tr')
+		for item in trs:
+			cel = item.find('th') or item.find('td')
+			lst.extend(cel)
 		order = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 25, 26, 27, 29, 28, 30, 31, 33, 35, 36, 38, 37, 39, 40, 41, 43, 42, 44]
 		try:
-			lst = [response.html.find('td')[x].text for x in order]
+			lst = [lst[x].text for x in order]
 		except IndexError:
 			title = _("Error")
 			msg = "<h1>{0}</h1>".format(title)
 			msg += _("Can't conjugate the verb {0}").format(self.verb)
+		temps = list(set([x.text for x in response.html.xpath('//tr[@class="temps"]/th')]))
 		groupe=response.html.xpath('//div[@class="fleft verb-meta-info"]')
 		if not msg:
 			if '---' in groupe[0].text:
@@ -155,12 +160,12 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 					if any (item == x for x in ["Indicatif", "Subjonctif", "Conditionnel", "Impératif", "Participe"]):
 						frm.append("<h1>{0}</h1>".format(item))
 					else:
-						if not item.endswith("ant"):
+						if item in temps:
 							frm.append("<h2>{0}</h2>".format(item))
 						else:
 							frm.append("<ul><li>{0}</li></ul>".format(item))
 			msg = '<body>{0}</body>'.format("".join(frm))
-			title = response.html.find('title', first = True).text
+			title = "Conjuguer le verbe {0}".format(self.verb)
 		if config.conf["conjugaison"]["displayMode"] == "HTMLMessage":
 			t = threading.Thread (target = ui.browseableMessage, args = [msg, title, True])
 			t.run()
