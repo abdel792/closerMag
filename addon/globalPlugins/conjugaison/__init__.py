@@ -7,25 +7,18 @@ import addonHandler
 import globalPluginHandler
 import wx
 import sys
-from logHandler import log
 import gui
 import config
 from gui import NVDASettingsDialog
 import os
 from .conjugaisonSettings import ADDON_NAME, ADDON_SUMMARY, ConjugaisonSettingsPanel
 from .contextHelp import showAddonHelp
-
-path = os.path.join(os.path.dirname(__file__), 'lib')
-sys.path.append(path)
-from requests_html import HTMLSession
-sys.path.remove(path)
-
+import re
+import urllib
 import threading
 import ui
 import tempfile 
 addonHandler.initTranslation()
-
-session = HTMLSession()
 
 if hasattr (gui, 'contextHelp'):
 	saveShowHelp = gui.contextHelp.showHelp
@@ -131,39 +124,40 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 			)
 			self.onConjugationDialog ()
 			return
-		response =session.get ("https://www.capeutservir.com/verbes/{0}.html".format(self.verb))
-		lst = []
-		trs = response.html.find('tr')
-		for item in trs:
-			cel = item.find('th') or item.find('td')
-			lst.extend(cel)
-		order = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 25, 26, 27, 29, 28, 30, 31, 33, 35, 36, 38, 37, 39, 40, 41, 43, 42, 44]
+		req =urllib.request.urlopen("https://www.capeutservir.com/verbes/{0}.html".format(self.verb)).read().decode("utf-8")
+		pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
+		rfinditer = re.compile(pattern1, re.M)
+		pattern2 = r"</?span[^>]*>"
+		rsub = re.compile(pattern2, re.M)
+		lst = [rsub.sub("", x.group(1)) for x in rfinditer.finditer(req)]
+		lst = [x for x in lst if not x in ('', '&nbsp;')]
+		pattern3 = r"<th class[^=]*=[^\"]*\"mode\"[^>]*>(.*?)</th>"
+		rfinditer = re.compile(pattern3, re.S)
+		modes = [x.group(1) for x in rfinditer.finditer(req)]
+		pattern4 = r"<div class[^=]*=[^\"]*\"fleft verb-meta-info\"[^>]*>(.*?)</div>"
+		rsearch = re.compile(pattern4, re.S)
+		pattern5 = r"</?(?:span|sup|b)[^>]*>"
+		rsub = re.compile(pattern5, re.M)
+		group = rsub.sub("", rsearch.search(req).group(1)).strip()
+		temps = [x for x in lst if not x in modes and not any(y in x for y in ("<ul", "&nbsp;"))]
+		order = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42]
+		infinitif = r"<h1>Le verbe {self.verb} est un auxiliaire.</h1>" if "---" in group else f"<h1>{group}.</h1>"
 		try:
-			lst = [lst[x].text for x in order]
+			lst=[lst[x] for x in order]
 		except IndexError:
 			title = _("Error")
 			msg = "<h1>{0}</h1>".format(title)
 			msg += _("Can't conjugate the verb {0}").format(self.verb)
-		temps = list(set([x.text for x in response.html.xpath('//tr[@class="temps"]/th')]))
-		groupe=response.html.xpath('//div[@class="fleft verb-meta-info"]')
 		if not msg:
-			if '---' in groupe[0].text:
-				infinitif = "<h1>{0}</h1>".format(groupe[0].text.split(self.verb)[0] + self.verb + " Le verbe {0} est un auxiliaire.".format(self.verb))
-			else:
-				infinitif = "<h1>{0}</h1>".format(groupe[0].text)
-			frm=[]
+			frm = []
 			frm.append(infinitif)
 			for item in lst:
-				if "\n" in item:
-					frm.append("<ul><li>{0}</li></ul>".format(item.replace("\n", "</li><li>")))
+				if item in modes:
+					frm.append(f"<h1>{item}</h1>")
+				elif item in temps:
+					frm.append(f"<h2>{item}</h2>")
 				else:
-					if any (item == x for x in ["Indicatif", "Subjonctif", "Conditionnel", "Impératif", "Participe"]):
-						frm.append("<h1>{0}</h1>".format(item))
-					else:
-						if item in temps:
-							frm.append("<h2>{0}</h2>".format(item))
-						else:
-							frm.append("<ul><li>{0}</li></ul>".format(item))
+					frm.append(item)
 			msg = '<body>{0}</body>'.format("".join(frm))
 			title = "Conjuguer le verbe {0}".format(self.verb)
 		if config.conf["conjugaison"]["displayMode"] == "HTMLMessage":

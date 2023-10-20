@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description" : _("""Allows you to conjugate a French verb using the site capeutservir.com."""),
 	# version
-	"addon_version" : "23.10.17",
+	"addon_version" : "23.10.20",
 	# Author(s)
 	"addon_author" : u"Abdel <abdelkrim.bensaid@gmail.com",
 	# URL for the add-on documentation support
