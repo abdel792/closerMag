@@ -56,23 +56,25 @@ msgstr "Verbe à conjuguer :"
 
 #. Translators: A message to remind you that no text has been entered.
 #: addon\globalPlugins\conjugaison\__init__.py:123
-msgid "You did not enter any text, please validate the OK button to start over"
+msgid ""
+"Either you didn't enter anything or your verb is not correct. Please try "
+"again"
 msgstr ""
-"Vous n'avez saisi aucun texte, veuillez valider le bouton OK pour recommencer"
+"Soit vous n'avez rien saisi, soit votre verbe n'est pas correct. réessayez s'il vous plaît"
 
 #. Translators: Title of the blank field reminder dialog box.
 #: addon\globalPlugins\conjugaison\__init__.py:125
-msgid "No text entered"
-msgstr "Aucun texte saisi"
+msgid "Input error"
+msgstr "Erreur de saisie"
 
 #: addon\globalPlugins\conjugaison\__init__.py:135
 msgid "Error"
 msgstr "Erreur"
 
-#: addon\globalPlugins\conjugaison\__init__.py:137
+#: addon\globalPlugins\conjugaison\__init__.py:150
 #, python-brace-format
-msgid "Can't conjugate the verb {0}"
-msgstr "Impossible de conjuguer le verbe {0}"
+msgid "Can't conjugate the verb {verb}"
+msgstr "Impossible de conjuguer le verbe {verb}"
 
 #. Translators: Display the conjugation in an NVDA message of type HTML.
 #: addon\globalPlugins\conjugaison\conjugaisonSettings.py:34

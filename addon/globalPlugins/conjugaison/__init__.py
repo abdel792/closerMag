@@ -119,14 +119,14 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 		if not re.match(r"^[^\W\d_]+$", self.verb):
 			gui.messageBox (
 			#Translators: A message to remind you that no text has been entered.
-			_("Either you didn't enter anything or your verb is not correct. Please start again"),
+			_("Either you didn't enter anything or your verb is not correct. Please try again"),
 			#Translators: Title of the blank field reminder dialog box.
 			_("Input error")
 			)
 			self.onConjugationDialog ()
 			return
 		self.verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
-		req =urllib.request.urlopen("https://www.capeutservir.com/verbes/{0}.html".format(self.verb)).read().decode("utf-8")
+		req =urllib.request.urlopen(f"https://www.capeutservir.com/verbes/{self.verb}.html").read().decode("utf-8")
 		pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
 		rfinditer = re.compile(pattern1, re.M)
 		pattern2 = r"</?span[^>]*>"
@@ -143,14 +143,14 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 		temps = [x for x in lst if not x in modes and not any(y in x for y in ("<ul", "&nbsp;"))]
 		order = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42]
 		try:
-			group = rsub.sub("", rsearch.search(req).group(1)).strip()
-			infinitif = f"<h1>Le verbe {self.verb} est un auxiliaire.</h1>" if "---" in group else f"<h1>{group}.</h1>"
-		except AttributeError:
-			title = _("Error")
-			msg = "<h1>{0}</h1>".format(title)
-			msg += _("Can't conjugate the verb {0}").format(self.verb)
-		if not msg:
 			lst = [lst[x] for x in order]
+		except IndexError:
+			title = _("Error")
+			msg = f"<h1>{title}</h1>"
+			msg += _("Can't conjugate the verb {verb}").format(verb=self.verb)
+		if not msg:
+			group = rsub.sub("", rsearch.search(req).group(1)).strip()
+			infinitif = f"<h1>{group.replace(' Groupe: ---', '')} Le verbe {self.verb} est un auxiliaire.</h1>" if "---" in group else f"<h1>{group}.</h1>"
 			frm = []
 			frm.append(infinitif)
 			for item in lst:
@@ -160,8 +160,8 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 					frm.append(f"<h2>{item}</h2>")
 				else:
 					frm.append(item)
-			msg = '<body>{0}</body>'.format("".join(frm))
-			title = "Conjuguer le verbe {0}".format(self.verb)
+			msg = f'<body>{"".join(frm)}</body>'
+			title = f"Conjuguer le verbe {self.verb}"
 		if config.conf["conjugaison"]["displayMode"] == "HTMLMessage":
 			t = threading.Thread (target = ui.browseableMessage, args = [msg, title, True])
 			t.run()
@@ -170,14 +170,14 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 			if not os.path.exists(addonTempDir):
 				os.mkdir(addonTempDir)
 			file = os.path.join (addonTempDir, "conjugaison.html")
-			htmlText = """<!DOCTYPE html>
+			htmlText = f"""<!DOCTYPE html>
 			<html lang='fr'>
 			<meta charset = 'utf-8' />
 			<head>
 			<title>{title}</title>
 			</head>
-			{body}
-			</html>""".format (title = title, body = msg)
+			{msg}
+			</html>"""
 			with open (file, mode = "w", encoding = "utf-8") as f:
 				f.write (htmlText)
 			os.startfile (file)
