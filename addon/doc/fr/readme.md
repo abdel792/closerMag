@@ -38,8 +38,12 @@ La validation sur cet élément affichera ce qui suit :
 
 ## Compatibilité ##
 
-* Cette extension est compatible avec les versions de NVDA allant de 2019.3 jusqu'à 2021.3.
+* Cette extension est compatible avec les versions de NVDA de 2019.3 et au-delà.
 
+## Changements pour la version 21.10.20 ##
+
+* Suppression de l'utilisation de la bibliothèque "requests_html" et utilisation du module intégré "urllib" à la place;
+* Prise en charge des caractères latins lors de la saisie du verbe à conjuguer.
 
 ## Changements pour la version 21.08.1 ##
 
@@ -53,6 +57,6 @@ La validation sur cet élément affichera ce qui suit :
   
   [[!tag dev stable]]
 
-[1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1.nvda-addon
+[1]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.20.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.20-dev.nvda-addon

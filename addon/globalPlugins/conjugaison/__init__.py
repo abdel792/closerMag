@@ -5,6 +5,7 @@
 
 import addonHandler
 import globalPluginHandler
+import unicodedata
 import wx
 import sys
 import gui
@@ -115,15 +116,16 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 
 	def conjugate (self):
 		title = msg = infinitif = ""
-		if self.verb == '':
+		if not re.match(r"^[^\W\d_]+$", self.verb):
 			gui.messageBox (
 			#Translators: A message to remind you that no text has been entered.
-			_("You did not enter any text, please validate the OK button to start over"),
+			_("Either you didn't enter anything or your verb is not correct. Please start again"),
 			#Translators: Title of the blank field reminder dialog box.
-			_("No text entered")
+			_("Input error")
 			)
 			self.onConjugationDialog ()
 			return
+		self.verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
 		req =urllib.request.urlopen("https://www.capeutservir.com/verbes/{0}.html".format(self.verb)).read().decode("utf-8")
 		pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
 		rfinditer = re.compile(pattern1, re.M)
@@ -142,7 +144,7 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 		order = [0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42]
 		try:
 			group = rsub.sub("", rsearch.search(req).group(1)).strip()
-			infinitif = r"<h1>Le verbe {self.verb} est un auxiliaire.</h1>" if "---" in group else f"<h1>{group}.</h1>"
+			infinitif = f"<h1>Le verbe {self.verb} est un auxiliaire.</h1>" if "---" in group else f"<h1>{group}.</h1>"
 		except AttributeError:
 			title = _("Error")
 			msg = "<h1>{0}</h1>".format(title)

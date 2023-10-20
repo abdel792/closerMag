@@ -38,8 +38,12 @@ Validating on this element will display the following:
 
 ## Compatibility ##
 
-* This add-on is compatible with versions of NVDA from 2019.3 until 2021.3.
+* This add-on is compatible with versions of NVDA from 2019.3 and beyond.
 
+## Changes for version 23.10.20 ##
+
+* Removed the use of the "requests_html" library and used the built-in "urllib" module instead;
+* Added support for Latin characters when entering the verb to conjugate in the prompt.
 
 ## Changes for version 21.08.1 ##
 
@@ -53,6 +57,6 @@ Validating on this element will display the following:
   
   [[!tag dev stable]]
 
-[1]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1.nvda-addon
+[1]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.20.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-21.08.1-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.20-dev.nvda-addon
