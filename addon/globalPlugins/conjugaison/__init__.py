@@ -125,8 +125,8 @@ class GlobalPlugin (globalPluginHandler.GlobalPlugin):
 			)
 			self.onConjugationDialog ()
 			return
-		self.verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
-		req =urllib.request.urlopen(f"https://www.capeutservir.com/verbes/{self.verb}.html").read().decode("utf-8")
+		verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
+		req =urllib.request.urlopen(f"https://www.capeutservir.com/verbes/{verb}.html").read().decode("utf-8")
 		pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
 		rfinditer = re.compile(pattern1, re.M)
 		pattern2 = r"</?span[^>]*>"
