@@ -4,13 +4,19 @@
 # or by visiting http://www.gnu.org/licenses/old-l+backspace
 
 import os
+from typing import Callable
+
 import gui
 import tempfile
 import addonHandler
 from .verbsSettings import ADDON_NAME
 from logHandler import log
-if hasattr (gui, 'contextHelp'):
-	from gui.contextHelp import 		writeRedirect
+if hasattr(gui, 'contextHelp'):
+	from gui.contextHelp import writeRedirect
+
+# gettex translation function.
+_: Callable[[str], str]
+
 
 def showAddonHelp(helpId: str):
 	"""Display the corresponding section of the user guide when either the Help
@@ -26,7 +32,7 @@ def showAddonHelp(helpId: str):
 		noHelpMessage = _("No help available here.")
 		queueHandler.queueFunction(queueHandler.eventQueue, ui.message, noHelpMessage)
 		return
-	helpFile = addonHandler.getCodeAddon ().getDocFilePath()
+	helpFile = addonHandler.getCodeAddon().getDocFilePath()
 	if helpFile is None:
 		# Translators: Message shown when trying to display context sensitive help,
 		# indicating that	the user guide could not be found.
@@ -41,7 +47,7 @@ def showAddonHelp(helpId: str):
 		os.mkdir(addonTempDir)
 
 	contextHelpRedirect = os.path.join(addonTempDir, "contextHelp.html")
-	if hasattr (gui, 'contextHelp'):
+	if hasattr(gui, 'contextHelp'):
 		try:
 			# a redirect is necessary because not all browsers support opening a fragment URL from the command line.
 			writeRedirect(helpId, helpFile, contextHelpRedirect)
@@ -53,5 +59,3 @@ def showAddonHelp(helpId: str):
 		os.startfile(f"file://{contextHelpRedirect}")
 	except Exception:
 		log.error("Unable to launch context help.", exc_info=True)
-
-
