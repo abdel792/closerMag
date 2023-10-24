@@ -7,7 +7,7 @@ import os
 import gui
 import tempfile
 import addonHandler
-from .conjugaisonSettings import ADDON_NAME
+from .verbsSettings import ADDON_NAME
 from logHandler import log
 if hasattr (gui, 'contextHelp'):
 	from gui.contextHelp import 		writeRedirect
