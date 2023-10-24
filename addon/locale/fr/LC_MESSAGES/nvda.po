@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 'verbs' '23.10.20'\n"
 "Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
-"POT-Creation-Date: 2023-10-23 08:48+0200\n"
+"POT-Creation-Date: 2023-10-24 17:21+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -12,131 +12,157 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Translators: Item in the tools menu for the Addon verbs.
-#: addon\globalPlugins\verbs\__init__.py:54
+#: addon\globalPlugins\verbs\__init__.py:77
 msgid "Ver&bs"
-msgstr "Ver&bes"
+msgstr "&Verbes"
 
 #. Translators: The tooltyp text for the verbs submenu.
-#: addon\globalPlugins\verbs\__init__.py:56
+#: addon\globalPlugins\verbs\__init__.py:79
 #, python-brace-format
-msgid "{0} add-on and its settings"
-msgstr "L'extension {0} et sa configuration"
+msgid "{0} add-on and its tools"
+msgstr "L'extension {0} et ses outils"
 
-#. Translators: Item in the tools menu for the Addon conjugaison.
-#: addon\globalPlugins\verbs\__init__.py:61
+#. Translators: Item in the verbs submenu for verb conjugation.
+#: addon\globalPlugins\verbs\__init__.py:84
 msgid "Conju&gaison..."
-msgstr "Conju&gaison"
+msgstr "Conju&gaison..."
 
 #. Translators: The tooltyp text for the conjugaison item.
-#: addon\globalPlugins\verbs\__init__.py:63
+#: addon\globalPlugins\verbs\__init__.py:86
 msgid "Allows you to conjugate a French verb using the site capeutservir.com"
-msgstr "Permet de conjuguer un verbe français à l'aide du site capeuservir.com"
+msgstr "Vous permet de conjuguer un verbe français à l'aide du site capeuservir.com"
 
-#. Translators: Item in the tools menu for the item allowing the display of the list of English irregular verbs.
-#: addon\globalPlugins\verbs\__init__.py:69
+#. Translators: Item in the verbs submenu to display irregular verbs.
+#: addon\globalPlugins\verbs\__init__.py:92
 msgid "English ir&regular verbs..."
 msgstr "Verbes ir&réguliers anglais"
 
-#. Translators: The tooltyp text for the item allowing the display of the list of English irregular verbs.
-#: addon\globalPlugins\verbs\__init__.py:71
+#. Translators: The tooltyp text for the irregular verbs item.
+#: addon\globalPlugins\verbs\__init__.py:94
 msgid ""
 "Allows you to view the list of English irregular verbs using the site "
 "capeutservir.com"
 msgstr ""
-"Permet de visualiser la liste des verbes irréguliers anglais utilisant le site"
+"Vous permet de visualiser la liste des verbes irréguliers anglais en utilisant le site"
 "capeutservir.com"
-#. Translators: Message presented in input help mode.
-#: addon\globalPlugins\verbs\__init__.py:100
+
+#: addon\globalPlugins\verbs\__init__.py:124
 msgid ""
 "Displays a dalogue box prompting the user to enter a French verb to "
 "conjugate."
 msgstr ""
-"Affiche une boîte de dialogue invitant l'utilisateur à saisir un verbe français pour "
+"Affiche une boîte de dialogue invitant l'utilisateur à saisir un verbe français afin de le "
 "conjuguer."
+
 #. Translators: Message presented in input help mode.
-#: addon\globalPlugins\verbs\__init__.py:107
+#: addon\globalPlugins\verbs\__init__.py:131
 msgid ""
-"Displays the list of English irregular verbs with their preterite, past participle, as "
-"well as their French translations."
+"\n"
+"\t\tDisplays the list of English irregular verbs with their preterite,\n"
+"\t\tpast participle, as well as their French translations.\n"
+"\t"
 msgstr ""
-"Affiche la liste des verbes irréguliers anglais avec leur prétérit, participe passé, "
-"ainsi que leurs traductions en français."
+"\n"
+"\t\tAffiche la liste des verbes irréguliers anglais avec leur prétérit,\n"
+"\t\tParticipe passé, ainsi que leurs traductions en français.\n"
+"\t"
+
 #. Translators: Message presented in input help mode.
-#: addon\globalPlugins\verbs\__init__.py:106
+#: addon\globalPlugins\verbs\__init__.py:140
 msgid "Allows you to display the verbs add-on settings panel."
 msgstr "Vous permet d'afficher le panneau de paramètres de l'extension verbs."
-#: addon\globalPlugins\verbs\__init__.py:121
+
+#: addon\globalPlugins\verbs\__init__.py:143
+msgid "English irregular verbs"
+msgstr "Verbes irréguliers anglais"
+
+#. Translators: Titled for the infinitive of the irregular verb.
+#: addon\globalPlugins\verbs\__init__.py:150
 msgid "Infinitive"
 msgstr "Infinitif"
 
-#: addon\globalPlugins\verbs\__init__.py:121
+#. Translators: Titled for the preterite of the irregular verb.
+#: addon\globalPlugins\verbs\__init__.py:152
 msgid "Preterite"
 msgstr "Prétérit"
 
-#: addon\globalPlugins\verbs\__init__.py:121
+#. Translators: Titled for the past participle of the irregular verb.
+#: addon\globalPlugins\verbs\__init__.py:154
 msgid "Past participle"
 msgstr "Participe passé"
 
-#: addon\globalPlugins\verbs\__init__.py:121
+#. Translators: Titled for the French translation of the irregular verb.
+#: addon\globalPlugins\verbs\__init__.py:156
 msgid "French translation"
 msgstr "Traduction en français"
+
 #. Translators: Dialog text for the verb editing dialog.
-#: addon\globalPlugins\verbs\__init__.py:133
+#: addon\globalPlugins\verbs\__init__.py:183
 msgid "Enter a verb to conjugate"
-msgstr "Entrez un verbe à conjuguer"
+msgstr "Veuillez entrer un verbe à conjuguer"
 
 #. Translators: Title for the verb editing  dialog
-#: addon\globalPlugins\verbs\__init__.py:135
+#: addon\globalPlugins\verbs\__init__.py:185
 msgid "Verb to conjugate:"
-msgstr "Verbe à conjuguer :"
+msgstr "Verbe à conjuguer"
 
-#. Translators: A message to remind you that no text has been entered.
-#: addon\globalPlugins\verbs\__init__.py:156
+#. Translators: A message to indicate that the text entered is not correctly written.
+#: addon\globalPlugins\verbs\__init__.py:207
 msgid ""
 "Either you didn't enter anything or your verb is not correct. Please try "
 "again"
 msgstr ""
 "Soit vous n'avez rien saisi, soit votre verbe n'est pas correct. Veuillez essayer "
 "à nouveau"
-#. Translators: Title of the blank field reminder dialog box.
-#: addon\globalPlugins\verbs\__init__.py:158
+
+#. Translators: Title of the message indicating the input error.
+#: addon\globalPlugins\verbs\__init__.py:209
 msgid "Input error"
 msgstr "Erreur de saisie"
 
-#: addon\globalPlugins\verbs\__init__.py:182
+#: addon\globalPlugins\verbs\__init__.py:235
 msgid "Error"
 msgstr "Erreur"
 
-#: addon\globalPlugins\verbs\__init__.py:184
+#: addon\globalPlugins\verbs\__init__.py:237
 #, python-brace-format
 msgid "Can't conjugate the verb {verb}"
 msgstr "Impossible de conjuguer le verbe {verb}"
 
 #. Translators: Message indicating no context sensitive help is available for the control or dialog.
-#: addon\globalPlugins\verbs\contextHelp.py:26
+#: addon\globalPlugins\verbs\contextHelp.py:32
 msgid "No help available here."
-msgstr "Aucune aide n'est disponible ici."
+msgstr "Aucune aide n'est disponible ici"
 
 #. Translators: Message shown when trying to display context sensitive help,
 #. indicating that	the user guide could not be found.
-#: addon\globalPlugins\verbs\contextHelp.py:33
+#: addon\globalPlugins\verbs\contextHelp.py:39
 msgid "No user guide found."
-msgstr "Aucun guide d'utilisation trouvé."
+msgstr "Aucun guide utilisateur trouvé."
 
-#. Translators: Display the conjugation in an NVDA message of type HTML.
-#: addon\globalPlugins\verbs\verbsSettings.py:36
+#. Translators: Display the result in an NVDA message of type HTML.
+#: addon\globalPlugins\verbs\verbsSettings.py:41
 msgid "Display in HTML message"
 msgstr "Afficher dans un message HTML"
 
-#. Translators: Display the conjugation in default browser.
-#: addon\globalPlugins\verbs\verbsSettings.py:39
+#. Translators: Displays the result in a simple NVDA browseable message.
+#: addon\globalPlugins\verbs\verbsSettings.py:44
+msgid "Display in a simple NVDA browseable message"
+msgstr "Afficher dans un simple message"
+
+#. Translators: Display the result in default browser.
+#: addon\globalPlugins\verbs\verbsSettings.py:47
 msgid "Display in default browser"
 msgstr "Afficher dans le navigateur par défaut"
 
 #. Translators: The label for an item to select the display mode for conjugations.
-#: addon\globalPlugins\verbs\verbsSettings.py:43
-msgid "Display modes:"
-msgstr "Modes d'affichage :"
+#: addon\globalPlugins\verbs\verbsSettings.py:52
+msgid "Display conjugation modes:"
+msgstr "Mode d'affichage de la conjugaison"
+
+#: addon\globalPlugins\verbs\verbsSettings.py:53
+msgid "Display irregular verbs modes:"
+msgstr "Mode d'affichage de la liste des verbes irréguliers"
 
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager

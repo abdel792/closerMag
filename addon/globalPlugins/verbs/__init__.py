@@ -75,8 +75,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			verbsMenu,
 			# Translators: Item in the tools menu for the Addon verbs.
 			_("Ver&bs"),
-			# Translators: The tooltyp text for the dayOfTheWeek submenu.
-			_("{0} add-on and its settings").format(ADDON_NAME)
+			# Translators: The tooltyp text for the verbs submenu.
+			_("{0} add-on and its tools").format(ADDON_NAME)
 		)
 
 		self.conjugationItem = verbsMenu.Append(wx.ID_ANY,

@@ -34,7 +34,7 @@ class VerbsSettingsPanel(SettingsPanel):
 
 	# Translators: The title of the add-on configuration dialog box.
 	title = ADDON_SUMMARY
-	helpId = "conjugaisonSettings"
+	helpId = "verbsSettings"
 	DISPLAY_MODES = (
 		("HTMLMessage",
 		 # Translators: Display the result in an NVDA message of type HTML.
