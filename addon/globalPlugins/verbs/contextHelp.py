@@ -56,6 +56,6 @@ def showAddonHelp(helpId: str):
 			return
 
 	try:
-		os.startfile(f"file://{contextHelpRedirect}")
+		os.startfile(f"file://{contextHelpRedirect}")  # type: ignore[attr-defined]
 	except Exception:
 		log.error("Unable to launch context help.", exc_info=True)

@@ -199,7 +199,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def onAddonSettingsDialog(self, evt):
 		gui.mainFrame._popupSettingsDialog(NVDASettingsDialog, VerbsSettingsPanel)
 
-	def conjugate(self):
+	def conjugate(self):  # noqa: C901
 		msg = ""
 		if not re.match(r"^[^\W\d_]+$", self.verb):
 			gui.messageBox(
