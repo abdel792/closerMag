@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Allows you to conjugate a French verb, as well as display the list of English irregular verbs."""),
 	# version
-	"addon_version": "23.10.24",
+	"addon_version": "24.10.24",
 	# Author(s)
 	"addon_author": u"Abdel <abdelkrim.bensaid@gmail.com",
 	# URL for the add-on documentation support
