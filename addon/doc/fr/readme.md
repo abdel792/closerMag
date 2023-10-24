@@ -80,6 +80,6 @@ Dans le panneau des paramètres de l'extension, vous devriez trouver ce qui suit
   
   [[!tag dev stable]]
 
-[1]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.24.nvda-addon
+[1]: https://github.com/abdel792/verbs/releases/download/v23.10.24/verbs-23.10.24.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/conjugaison-23.10.24-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/verbs-23.10.24-dev.nvda-addon
