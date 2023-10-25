@@ -1,14 +1,19 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the verbs package.
+# FIRST AUTHOR <abdelkrim.bensaid@gmail.com>, 2023.
+#
 msgid ""
 msgstr ""
-"Project-Id-Version: 'verbs' '23.10.20'\n"
-"Report-Msgid-Bugs-To: 'nvda-translations@freelists.org'\n"
-"POT-Creation-Date: 2023-10-24 17:21+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Project-Id-Version: verbs 23.10.24\n"
+"Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
+"POT-Creation-Date: 2023-10-20 15:57+1004\n"
+"PO-Revision-Date: 2023-10-24 10:32+0200\n"
+"Last-Translator: Abdelkrim BENSAÏD <abdelkrim.bensaid@gmail.com>\n"
+"Language-Team: NVDA add-ons French translation team <remyruiz@gmail.com>\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #. Translators: Item in the tools menu for the Addon verbs.
@@ -119,15 +124,6 @@ msgstr ""
 #: addon\globalPlugins\verbs\__init__.py:209
 msgid "Input error"
 msgstr "Erreur de saisie"
-
-#: addon\globalPlugins\verbs\__init__.py:235
-msgid "Error"
-msgstr "Erreur"
-
-#: addon\globalPlugins\verbs\__init__.py:237
-#, python-brace-format
-msgid "Can't conjugate the verb {verb}"
-msgstr "Impossible de conjuguer le verbe {verb}"
 
 #. Translators: Message indicating no context sensitive help is available for the control or dialog.
 #: addon\globalPlugins\verbs\contextHelp.py:32
