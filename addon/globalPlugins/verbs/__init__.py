@@ -110,7 +110,9 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 
 	def event_gainFocus(self, obj, nextHandler):
 		if hasattr(gui, 'contextHelp'):
-			if obj.parent and obj.parent.parent and any(x == ADDON_SUMMARY for x in (obj.name, obj.parent.parent.name)) or self.contextHelp:
+			if obj.parent and obj.parent.parent and any(
+				x == ADDON_SUMMARY for x in (obj.name, obj.parent.parent.name)
+			) or self.contextHelp:
 				gui.contextHelp.showHelp = showAddonHelp
 			else:
 				gui.contextHelp.showHelp = saveShowHelp
