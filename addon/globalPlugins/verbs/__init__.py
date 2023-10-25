@@ -200,8 +200,27 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		gui.mainFrame._popupSettingsDialog(NVDASettingsDialog, VerbsSettingsPanel)
 
 	def conjugate(self):  # noqa: C901
-		msg = ""
-		if not re.match(r"^[^\W\d_]+$", self.verb):
+		if re.match(r"^[^\W\d_]+$", self.verb):
+			verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
+			req = urllib.request.urlopen(f"https://www.capeutservir.com/verbes/{verb}.html").read().decode("utf-8")
+			pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
+			rfinditer = re.compile(pattern1, re.M)
+			pattern2 = r"</?span[^>]*>"
+			rsub = re.compile(pattern2, re.M)
+			lst = [rsub.sub("", x.group(1)) for x in rfinditer.finditer(req)]
+			lst = [x for x in lst if x not in ('', '&nbsp;')]
+			pattern3 = r"<th class[^=]*=[^\"]*\"mode\"[^>]*>(.*?)</th>"
+			rfinditer = re.compile(pattern3, re.S)
+			modes = [x.group(1) for x in rfinditer.finditer(req)]
+			pattern4 = r"<div class[^=]*=[^\"]*\"fleft verb-meta-info\"[^>]*>(.*?)</div>"
+			rsearch = re.compile(pattern4, re.S)
+			pattern5 = r"</?(?:span|sup|b)[^>]*>"
+			rsub = re.compile(pattern5, re.M)
+			temps = [x for x in lst if x not in modes and not any(y in x for y in ("<ul", "&nbsp;"))]
+			order = (0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15,
+				         14, 16, 17, 18, 20, 19, 21, 22, 24, 23,         14, 16, 17, 18, 20, 19, 21, 22, 24, 23,
+				         25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42)
+		if not re.match(r"^[^\W\d_]+$", self.verb) or not len(lst):
 			gui.messageBox(
 				# Translators: A message to indicate that the text entered is not correctly written.
 				_("Either you didn't enter anything or your verb is not correct. Please try again"),
@@ -210,43 +229,17 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			)
 			self.onConjugationDialog()
 			return
-		verb = unicodedata.normalize('NFD', self.verb).encode('ascii', 'ignore').decode("utf-8")
-		req = urllib.request.urlopen(f"https://www.capeutservir.com/verbes/{verb}.html").read().decode("utf-8")
-		pattern1 = r"<(?:th|td)[^>]*?>(.*?)<(?:/th|/td)>"
-		rfinditer = re.compile(pattern1, re.M)
-		pattern2 = r"</?span[^>]*>"
-		rsub = re.compile(pattern2, re.M)
-		lst = [rsub.sub("", x.group(1)) for x in rfinditer.finditer(req)]
-		lst = [x for x in lst if x not in ('', '&nbsp;')]
-		pattern3 = r"<th class[^=]*=[^\"]*\"mode\"[^>]*>(.*?)</th>"
-		rfinditer = re.compile(pattern3, re.S)
-		modes = [x.group(1) for x in rfinditer.finditer(req)]
-		pattern4 = r"<div class[^=]*=[^\"]*\"fleft verb-meta-info\"[^>]*>(.*?)</div>"
-		rsearch = re.compile(pattern4, re.S)
-		pattern5 = r"</?(?:span|sup|b)[^>]*>"
-		rsub = re.compile(pattern5, re.M)
-		temps = [x for x in lst if x not in modes and not any(y in x for y in ("<ul", "&nbsp;"))]
-		order = (0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15,
-		         14, 16, 17, 18, 20, 19, 21, 22, 24, 23,
-		         25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42)
-		try:
-			lst = [lst[x] for x in order]
-		except IndexError:
-			title = _("Error")
-			msg = f"<h1>{title}</h1>"
-			msg += _("Can't conjugate the verb {verb}").format(verb=self.verb)
-		if not msg:
-			group = rsub.sub("", rsearch.search(req).group(1)).strip()
-			cleanLst = []
-			pattern7 = r"(?:<li>)([^<]*?)(?:</li>)"
-			for item in lst:
-				cleanLst.append(item)
-				if re.search(pattern7, item):
-					cleanLst.remove(item)
-					cleanLst.extend([x.group(1) for x in re.finditer(pattern7, item)])
-			title = f"Conjuguer le verbe {self.verb}"
-			infinitif = f"<h1>{group.replace(' Groupe: ---', '')} Le verbe {self.verb} est un auxiliaire.</h1>"\
-				if "---" in group else f"<h1>{group}.</h1>"
+		group = rsub.sub("", rsearch.search(req).group(1)).strip()
+		cleanLst = []
+		pattern7 = r"(?:<li>)([^<]*?)(?:</li>)"
+		for item in lst:
+			cleanLst.append(item)
+			if re.search(pattern7, item):
+				cleanLst.remove(item)
+				cleanLst.extend([x.group(1) for x in re.finditer(pattern7, item)])
+		title = f"Conjuguer le verbe {self.verb}"
+		infinitif = f"<h1>{group.replace(' Groupe: ---', '')} Le verbe {self.verb} est un auxiliaire.</h1>"\
+			if "---" in group else f"<h1>{group}.</h1>"
 		frm = []
 		frm.append(infinitif)
 		for item in lst:
