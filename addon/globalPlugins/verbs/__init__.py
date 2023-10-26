@@ -220,7 +220,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 			rsub = re.compile(pattern5, re.M)
 			temps = [x for x in lst if x not in modes and not any(y in x for y in ("<ul", "&nbsp;"))]
 			order = (0, 1, 3, 2, 4, 5, 7, 6, 8, 9, 11, 10, 12, 13, 15,
-			14, 16, 17, 18, 20, 19, 21, 22, 24, 23, 14, 16, 17, 18, 20, 19, 21, 22, 24, 23,
+			14, 16, 17, 18, 20, 19, 21, 22, 24, 23,
 			25, 26, 27, 29, 28, 30, 31, 32, 33, 34, 36, 35, 37, 38, 39, 41, 40, 42)
 		if not re.match(r"^[^\W\d_]+$", self.verb) or not len(lst):
 			gui.messageBox(
