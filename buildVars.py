@@ -19,7 +19,7 @@ addon_info = {
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 	"addon_description": _("""Allows you to view the 37 most recent articles from the closermag.fr site"""),
 	# version
-	"addon_version": "20231029.0.0",
+	"addon_version": "23.10.29",
 	# Author(s)
 	"addon_author": u"Abdel <abdelkrim.bensaid@gmail.com",
 	# URL for the add-on documentation support
