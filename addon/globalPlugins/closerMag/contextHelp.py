@@ -5,11 +5,10 @@
 
 import os
 from typing import Callable
-
 import gui
 import tempfile
 import addonHandler
-from .verbsSettings import ADDON_NAME
+from .closerMagSettings import ADDON_NAME
 from logHandler import log
 if hasattr(gui, 'contextHelp'):
 	from gui.contextHelp import writeRedirect

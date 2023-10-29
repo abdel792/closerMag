@@ -11,15 +11,15 @@ addon_info = {
 	# for previously unpublished addons, please follow the community guidelines at:
 	# https://bitbucket.org/nvdaaddonteam/todo/raw/master/guideLines.txt
 	# add-on Name, internal for nvda
-	"addon_name": "verbs",
+	"addon_name": "closerMag",
 	# Add-on summary, usually the user visible name of the addon.
 	# Translators: Summary for this add-on to be shown on installation and add-on information.
-	"addon_summary": "Verbs",
+	"addon_summary": "closerMag",
 	# Add-on description
 	# Translators: Long description to be shown for this add-on on add-on information from add-ons manager
-	"addon_description": _("""Allows you to conjugate a French verb, as well as display the list of English irregular verbs."""),
+	"addon_description": _("""Allows you to view the 37 most recent articles from the closermag.fr site"""),
 	# version
-	"addon_version": "23.10.24",
+	"addon_version": "23.10.29",
 	# Author(s)
 	"addon_author": u"Abdel <abdelkrim.bensaid@gmail.com",
 	# URL for the add-on documentation support
@@ -39,7 +39,7 @@ import os.path
 
 # Define the python files that are the sources of your add-on.
 # You can use glob expressions here, they will be expanded.
-pythonSources = [os.path.join("addon", "globalPlugins", "verbs", "*.py")]
+pythonSources = [os.path.join("addon", "globalPlugins", "closerMag", "*.py")]
 
 # Files that contain strings for translation. Usually your python sources
 i18nSources = pythonSources + ["buildVars.py"]
