@@ -10,6 +10,8 @@ It adds a menu to the NVDA Tools menu named «closerMag».
 
 When you validate on the «CloserMag» item, the 37 most recent articles appearing on «closermag.fr» should be displayed, according to the display mode that you would have chosen in the add-on settings.
 
+The page may take a little time to load, so please wait until it is fully displayed.
+
 ## Add-on settings ## {: #closerMagSettings }
 
 In the add-on's settings panel, you should find the following:

@@ -14,7 +14,7 @@ import config
 from gui import NVDASettingsDialog
 import os
 from .closerMagSettings import ADDON_NAME, ADDON_SUMMARY, CloserMagSettingsPanel
-from .closerMagDisplay import FirstListThread, ArticlesThread
+from .closerMagDisplay import ArticlesThread
 from .contextHelp import showAddonHelp
 import ui
 import tempfile
@@ -109,15 +109,11 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def onCloserMagDialog(self, evt=None):
 		title = _("Recent articles on closermag.fr")
 		isHtml = config.conf["closerMag"]["displayCloserMagMode"] in ("HTMLMessage", "defaultBrowser")
-		thread1 = FirstListThread(event)
-		thread1.start()
-		event.wait(0.3)
+		thread = ArticlesThread(event, isHtml=isHtml)
+		thread.start()
+		event.wait()
 		event.clear()
-		thread2 = ArticlesThread(event, isHtml=isHtml)
-		thread2.start()
-		event.wait(0.3)
-		event.clear()
-		message = "\r\n".join(thread2.result)
+		message = "\r\n".join(thread.result)
 		if config.conf["closerMag"]["displayCloserMagMode"] in ("simpleMessage", "HTMLMessage"):
 			core.callLater(0, ui.browseableMessage, title=title, message=message, isHtml=isHtml)
 		else:

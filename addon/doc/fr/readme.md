@@ -10,6 +10,8 @@ Elle ajoute un item	 dans le menu Outils de NVDA nommé «CloserMag».
 
 Lorsque vous validez sur l'item «CloserMag», les 37 articles les plus récents apparus sur «closermag.fr» devraient s'afficher, selon le mode d'affichage que vous aurait choisi dans les paramètres de l'extension.
 
+Le chargement de la page pourra prendre un peu de temps, il faudra juste patienter le temps qu'elle se charge entièrement.
+
 ## Paramètres de l'extension ## {: #closerMagSettings }
 
 Dans le panneau des paramètres de l'extension, vous devriez trouver ce qui suit :
