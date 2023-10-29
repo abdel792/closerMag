@@ -1,4 +1,4 @@
-## Changes for 20231029.0.0
+## Changes for 23.10.29
 
-* Renamed the add-on from "Conjugaison" to "Verbs";
-* Added display of English irregular verbs.
+* Creation of the first stable release of this add-on;
+* For more information, see the readme file.
