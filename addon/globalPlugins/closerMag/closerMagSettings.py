@@ -1,4 +1,5 @@
 # globalPlugins/closerMag/closerMagSettings.py.
+
 # This file is covered by the GNU General Public License.
 # You can read the licence by clicking Help->Licence in the NVDA menu
 # or by visiting http://www.gnu.org/licenses/old-l+backspace

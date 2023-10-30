@@ -6,7 +6,6 @@
 
 import addonHandler
 import globalPluginHandler
-import core
 import threading
 from typing import Callable, Dict
 import wx
@@ -124,7 +123,7 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		articles = thread._result
 		message = "\r\n".join(articles)
 		if config.conf["closerMag"]["displayCloserMagMode"] in ("simpleMessage", "HTMLMessage"):
-			core.callLater(0, ui.browseableMessage, title=title, message=message, isHtml=isHtml)
+			ui.browseableMessage(title=title, message=message, isHtml=isHtml)
 		else:
 			displayInDefaultBrowser(fileName="closerMagArticles", title=title, body=message)
 
