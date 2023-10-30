@@ -4,7 +4,7 @@
 # or by visiting http://www.gnu.org/licenses/old-l+backspace
 
 import wx
-from typing import Callable
+from typing import Callable, Dict, Tuple
 import gui
 import gui.guiHelper
 import config
@@ -18,13 +18,13 @@ else:
 	from gui import SettingsPanel
 
 # Constants
-ADDON_SUMMARY = addonHandler.getCodeAddon().manifest["summary"]
-ADDON_NAME = addonHandler.getCodeAddon().manifest["name"]
+ADDON_SUMMARY: str = addonHandler.getCodeAddon().manifest["summary"]
+ADDON_NAME: str = addonHandler.getCodeAddon().manifest["name"]
 
 # gettex translation function.
 _: Callable[[str], str]
 
-confSpec = {
+confSpec: Dict = {
 	"displayCloserMagMode": "string(default = HTMLMessage)",
 }
 config.conf.spec["closerMag"] = confSpec
@@ -33,9 +33,9 @@ config.conf.spec["closerMag"] = confSpec
 class CloserMagSettingsPanel(SettingsPanel):
 
 	# Translators: The title of the add-on configuration dialog box.
-	title = ADDON_SUMMARY
-	helpId = "closerMagSettings"
-	DISPLAY_MODES = (
+	title: str = ADDON_SUMMARY
+	helpId: str = "closerMagSettings"
+	DISPLAY_MODES: Tuple[Tuple[str, str], Tuple[str, str], Tuple[str, str]] = (
 		("HTMLMessage",
 		 # Translators: Display the result in an NVDA message of type HTML.
 		 _("Display in HTML message")),

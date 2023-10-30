@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: closerMag 23.10.29\n"
+"Project-Id-Version: closerMag 23.10.30\n"
 "Report-Msgid-Bugs-To: nvda-translations@groups.io\n"
 "POT-Creation-Date: 2023-10-29 15:57+1004\n"
 "PO-Revision-Date: 2023-10-29 22:32+0200\n"
@@ -26,19 +26,20 @@ msgstr "C&loserMag"
 msgid "Allows you to view the latest 37 articles from the closermag.fr site"
 msgstr "Vous permet de consulter les 37 derniers articles du site closermag.fr"
 
-#. Translators: Message presented in input help mode.
-#: addon\globalPlugins\closerMag\__init__.py:100
+#: addon\globalPlugins\closerMag\__init__.py:101
 msgid ""
 "Allows you to display the last 37 articles appearing on the site closermag."
 "fr."
-msgstr "Vous permet d'afficher les 37 derniers articles parus sur le site closermag.fr"
+msgstr ""
+
+"Vous permet d'afficher les 37 derniers articles parus sur le site closermag.fr"
 
 #. Translators: Message presented in input help mode.
-#: addon\globalPlugins\closerMag\__init__.py:106
+#: addon\globalPlugins\closerMag\__init__.py:108
 msgid "Allows you to display the closerMag add-on settings panel."
 msgstr "Vous permet d’afficher le panneau des paramètres de l'extension closerMag."
 
-#: addon\globalPlugins\closerMag\__init__.py:109
+#: addon\globalPlugins\closerMag\__init__.py:111
 msgid "Recent articles on closermag.fr"
 msgstr "Articles récents sur closermag.fr"
 
@@ -62,19 +63,9 @@ msgstr "Afficher dans le navigateur par défaut"
 msgid "closermag.fr articles display mode"
 msgstr "Mode d'affichage des articles de closermag.fr"
 
-#. Translators: Message indicating no context sensitive help is available for the control or dialog.
-#: addon\globalPlugins\closerMag\contextHelp.py:31
-msgid "No help available here."
-msgstr "Aucune aide contextuelle n'est disponible ici"
-
-#. Translators: Message shown when trying to display context sensitive help,
-#. indicating that	the user guide could not be found.
-#: addon\globalPlugins\closerMag\contextHelp.py:38
-msgid "No user guide found."
-msgstr "Aucun guide utilisateur trouvé"
-
 #. Add-on description
 #. Translators: Long description to be shown for this add-on on add-on information from add-ons manager
 #: buildVars.py:20
-msgid "Allows you to view the 37 most recent articles from the closermag.fr site"
+msgid ""
+"Allows you to view the 37 most recent articles from the closermag.fr site"
 msgstr "Permet de consulter les 37 articles les plus récents du site closermag.fr"

@@ -10,8 +10,6 @@ It adds a menu to the NVDA Tools menu named «closerMag».
 
 When you validate on the «CloserMag» item, the 37 most recent articles appearing on «closermag.fr» should be displayed, according to the display mode that you would have chosen in the add-on settings.
 
-The page may take a little time to load, so please wait until it is fully displayed.
-
 ## Add-on settings ## {: #closerMagSettings }
 
 In the add-on's settings panel, you should find the following:
@@ -36,10 +34,10 @@ In the add-on's settings panel, you should find the following:
 
 * This add-on is compatible with NVDA 2019.3 and beyond.
 
-## Changes for version 23.10.29 ##
+## Changes for version 23.10.30 ##
 
 * Initial version.
 
-[1]: https://github.com/abdel792/closerMag/releases/download/v23.10.29/closerMag-23.10.29.nvda-addon
+[1]: https://github.com/abdel792/closerMag/releases/download/v23.10.30/closerMag-23.10.30.nvda-addon
 
-[2]: http://cyber25.free.fr/nvda-addons/closerMag-23.10.29-dev.nvda-addon
+[2]: http://cyber25.free.fr/nvda-addons/closerMag-23.10.30-dev.nvda-addon

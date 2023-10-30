@@ -1,4 +1,5 @@
 # globalPlugins/closerMag/__init__.py.
+
 # This file is covered by the GNU General Public License.
 # You can read the licence by clicking Help->Licence in the NVDA menu
 # or by visiting http://www.gnu.org/licenses/old-l+backspace
@@ -7,7 +8,7 @@ import addonHandler
 import globalPluginHandler
 import core
 import threading
-from typing import Callable
+from typing import Callable, Dict
 import wx
 import gui
 import config
@@ -19,6 +20,7 @@ from .contextHelp import showAddonHelp
 import ui
 import tempfile
 addonHandler.initTranslation()
+
 event = threading.Event()
 
 # gettex translation function.
@@ -28,7 +30,7 @@ if hasattr(gui, 'contextHelp'):
 	saveShowHelp = gui.contextHelp.showHelp
 
 
-def displayInDefaultBrowser(fileName, title, body):
+def displayInDefaultBrowser(fileName: str, title: str, body: str) -> None:
 	addonTempDir = os.path.join(tempfile.gettempdir(), ADDON_NAME)
 	if not os.path.exists(addonTempDir):
 		os.mkdir(addonTempDir)
@@ -42,16 +44,15 @@ def displayInDefaultBrowser(fileName, title, body):
 	<body>
 	{body}
 	</body>
-	</html>""".replace("\t", "")
+	</html>"""
 	with open(file, mode="w", encoding="utf-8") as f:
-		f.write(htmlText)
-	os.startfile(file)
+		f.write(htmlText.replace("\t", ""))
+	os.startfile(file)  # type: ignore[attr-defined]
 
 
 class GlobalPlugin(globalPluginHandler.GlobalPlugin):
-	scriptCategory = ADDON_SUMMARY
-	_instance = False
-	contextHelp = False
+	scriptCategory: str = ADDON_SUMMARY
+	contextHelp: bool = False
 
 	def __init__(self, *args, **kwargs):
 		super(GlobalPlugin, self).__init__(*args, **kwargs)
@@ -113,7 +114,8 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 		thread.start()
 		event.wait()
 		event.clear()
-		message = "\r\n".join(thread.result)
+		articles = thread._result
+		message = "\r\n".join(articles)
 		if config.conf["closerMag"]["displayCloserMagMode"] in ("simpleMessage", "HTMLMessage"):
 			core.callLater(0, ui.browseableMessage, title=title, message=message, isHtml=isHtml)
 		else:
@@ -122,6 +124,6 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	def onAddonSettingsDialog(self, evt):
 		gui.mainFrame._popupSettingsDialog(NVDASettingsDialog, CloserMagSettingsPanel)
 
-	__gestures = {
+	__gestures: Dict = {
 		"kb:control+shift+f9": "displayCloserMagArticles",
 	}
