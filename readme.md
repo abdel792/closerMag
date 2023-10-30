@@ -8,7 +8,7 @@ This add-on allows you to display the 37 most recent articles appearing on the s
 
 It adds a menu to the NVDA Tools menu named «closerMag».
 
-When you validate on the «CloserMag» item, the 37 most recent articles appearing on «closermag.fr» should be displayed, according to the display mode that you would have chosen in the add-on settings.
+When you validate on this item, these articles should be displayed, according to the display mode that you would have chosen in the add-on settings.
 
 ## Add-on settings ## {: #closerMagSettings }
 

@@ -102,7 +102,14 @@ class GlobalPlugin(globalPluginHandler.GlobalPlugin):
 	)
 
 	def script_activateAddonSettingsDialog(self, gesture):
-		wx.CallAfter(self.onAddonSettingsDialog, None)
+		if hasattr(gui.settingsDialogs, "NVDASettingsDialog"):
+			wx.CallAfter(
+				(gui.mainFrame.popupSettingsDialog if hasattr(gui.mainFrame, "popupSettingsDialog")
+				 else gui.mainFrame._popupSettingsDialog),
+				gui.settingsDialogs.NVDASettingsDialog, CloserMagSettingsPanel
+			)
+		else:
+			wx.CallAfter(self.onAddonSettingsDialog, gui.mainFrame)
 
 	# Translators: Message presented in input help mode.
 	script_activateAddonSettingsDialog.__doc__ = _("Allows you to display the closerMag add-on settings panel.")

@@ -4,11 +4,11 @@
 * Télécharger [version stable][1]
 * Télécharger [version de développement][2]
 
-Cette extension vous permet d'afficher les 37 arcicles les plus récents apparus sur le site : «https://www.closermag.fr».
+Cette extension vous permet d'afficher les 37 articles les plus récents apparus sur le site : «https://www.closermag.fr».
 
 Elle ajoute un item	 dans le menu Outils de NVDA nommé «CloserMag».
 
-Lorsque vous validez sur l'item «CloserMag», les 37 articles les plus récents apparus sur «closermag.fr» devraient s'afficher, selon le mode d'affichage que vous aurait choisi dans les paramètres de l'extension.
+Lorsque vous validez sur cet item, ces articles devraient s'afficher selon le mode d'affichage que vous aurait choisi dans les paramètres de l'extension.
 
 ## Paramètres de l'extension ## {: #closerMagSettings }
 
@@ -28,7 +28,7 @@ Dans le panneau des paramètres de l'extension, vous devriez trouver ce qui suit
 * Par défaut, le geste «contrôle + Shift + F9» est affecté au script qui permet d'afficher les articles de «closermag.fr»;
 * Un script sans geste attribué vous permet d'ouvrir le panneau des paramètres de l'extension;
 * Vous pouvez attribuer de nouveaux gestes pour exécuter ces scripts dans le menu «Gestes de commandes» et plus précisément, dans la catégorie «CloserMag»;
-* Si vous utilisez nvda-2021.1 ou version ultérieure, vous pourrez accéder au paragraphe décrivant le panneau des paramètres de l'extension en pressant simplemement sur la touche «F1» dès que le focus sera positionné sur ce contrôle.
+* Si vous utilisez nvda-2021.1 ou version ultérieure, vous pourrez accéder au paragraphe décrivant le panneau des paramètres de l'extension en pressant simplement sur la touche «F1» dès que le focus sera positionné sur ce contrôle.
 
 ## Compatibilité ##
 
